@@ -1,0 +1,28 @@
+# App artifacts
+/_build
+/db
+/deps
+/*.ez
+target/
+tmp/
+manifest.dat
+neo4j/
+erl_crash.dump
+/config/*.secret.exs
+peachi_stack.json
+clothing_item_images/
+
+#IDE files
+.idea
+*.iml
+.elixir_ls
+
+# Environment Variables
+.env
+.gitsecret/keys/random_seed
+
+priv/config.json
+
+
+# Krogon
+.infra_cache
