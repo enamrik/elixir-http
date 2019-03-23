@@ -142,7 +142,7 @@ defmodule ElixirHttpPlug.PlugConnTest do
 
       response = PlugConn.to_json_response(value, conn)
 
-      assert response.status == 201
+      assert response.status == 204
       assert response.resp_body == ""
     end
 

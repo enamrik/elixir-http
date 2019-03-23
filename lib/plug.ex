@@ -7,6 +7,9 @@ defmodule ElixirHttpPlug.PlugConn do
   @spec status201(Plug.Conn.t) :: Plug.Conn.t
   def status201(conn), do: conn |> send_resp(201, "")
 
+  @spec status204(Plug.Conn.t) :: Plug.Conn.t
+  def status204(conn), do: conn |> send_resp(204, "")
+
   @spec status400(Plug.Conn.t, String.t) :: Plug.Conn.t
   def status400(conn, message \\ "Bad Request"), do: conn |> send_json_error(status_code: 400, message: message)
 
@@ -21,7 +24,7 @@ defmodule ElixirHttpPlug.PlugConn do
     case result do
       {:error, error}                                -> conn |> send_json_error(error)
       {:ok, value}                                   -> conn |> send_json(value)
-      :ok                                            -> conn |> status201
+      :ok                                            -> conn |> status204
       unknown_type                                   -> conn |> send_json(unknown_type)
     end
   end
