@@ -1,6 +1,7 @@
 defmodule ElixirHttpPlug.ErrorTest do
   alias ElixirHttpPlug.Error.Maker
   alias ElixirHttpPlug.ValidationErrors
+  alias ElixirHttpPlug.Error
   use ExUnit.Case
 
   describe "Error" do
@@ -22,6 +23,10 @@ defmodule ElixirHttpPlug.ErrorTest do
 
     test "can make entity not_found error" do
       assert Maker.entity_not_found_error("1", "videos").code == "ENTITY_NOT_FOUND"
+    end
+
+    test "can make entity not_found error with custom message" do
+      assert Maker.entity_not_found_error("some message") == %Error{ code: "ENTITY_NOT_FOUND", message: "some message" }
     end
 
     test "can make invalid_args error for property" do

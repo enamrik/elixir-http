@@ -41,6 +41,11 @@ defmodule ElixirHttpPlug.Error.Maker do
     %Error{message: "#{type} with id #{id} not found", code: "ENTITY_NOT_FOUND"}
   end
 
+  @spec entity_not_found_error(String.t()) :: ElixirHttpPlug.Error.t()
+  def entity_not_found_error(message) do
+    %Error{message: message, code: "ENTITY_NOT_FOUND"}
+  end
+
   @spec invalid_args_error(String.t(), String.t()) :: ElixirHttpPlug.Error.t()
   def invalid_args_error(property, message) do
     %Error{message: %{property => message}, code: "INVALID_ARGS"}
