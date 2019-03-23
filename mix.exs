@@ -20,7 +20,7 @@ defmodule ElixirHttpPlug.MixProject do
   defp deps do
     [
       {:poison, "~> 4.0"},
-      {:plug, "~> 1.6"},
+      {:plug_cowboy, "~> 2.0"},
     ]
   end
 end
